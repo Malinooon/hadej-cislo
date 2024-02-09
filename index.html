@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hádej číslo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Hádej číslo</h1>
+    <p>Zadejte číslo mezi 1 a 100:</p>
+    <input type="number" id="guess">
+    <button onclick="checkGuess()">Odeslat</button>
+    <p id="result"></p>
+    <script>
+        function checkGuess() {
+            let guess = document.getElementById("guess").value;
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            let resultElement = document.getElementById("result");
+            if (guess == randomNumber) {
+                resultElement.innerHTML = "Gratulujeme! Uhodli jste číslo.";
+                resultElement.classList.add("correct");
+            } else if (guess < randomNumber) {
+                resultElement.innerHTML = "Vaše číslo je menší než hledané číslo. Zkuste to znovu.";
+                resultElement.classList.add("incorrect");
+            } else {
+                resultElement.innerHTML = "Vaše číslo je větší než hledané číslo. Zkuste to znovu.";
+                resultElement.classList.add("incorrect");
+            }
+        }
+    </script>
+</body>
+</html>
